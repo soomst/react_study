@@ -1,7 +1,7 @@
 < Component-Driven User Interfaces>
 - components
 - props         : 컴포넌트 간에 데이터 공유 시 사용.
-- children prop : 태그 사이에 있는 내용들. 
+- children prop(40강) : 태그 사이에 있는 내용들. 
                   태그를 사용할 때, 따로 children prop key를 지정하지 않아도 된다. (ex. Card.js)
 - JSX란? (42강)
     just syntactic sugar
@@ -11,6 +11,17 @@
     JSX코드를 사용할 때, JSX코드는 'React.createElement(블라블라~)'로 변환된다.
     따라서, (최신)기술적으로 jsx코드를 사용하는 js 내에 import React from 'react'를 해줄 필요는 없지만
     내부에서 react가 계속 사용되어진다는 것을 잊지 말자.
-    
-- 파일 정리방벙
-- 함수 사용 방법
+
+- 파일 정리방벙(43강)
+- 화살표 함수 : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+Q. Which kind of code do you write when using React.js?
+A. Declarative JS Code.
+
+Q. What is "JSX"?
+A. It's a special, non-standard syntax which is enable in React projects.
+
+Q. Why is React all about "Components"?
+A. Every UI in the end up is made up of multiple building blocks(=components), 
+   hence it makes sense to think about user interfaces as "combinations of components".
+
