@@ -9,8 +9,8 @@ const Expenses = (props) => {
     return (
         <Card className='expenses'>
             {
-                expenses.map((arr)=>{
-                    return <ExpenseItem expense={arr}/>
+                expenses.map((arr, idx) => {
+                    return <ExpenseItem key={idx} expense={arr} />
                 })
             }
         </Card>
