@@ -34,12 +34,12 @@ setValue({...value, title : 'bye world~'})가 아닌,
 })</b>
 로 사용하자!
 
-prevState : 이전 상태의 snapshot을 가져올 수 있음.
-return은 새로운 상태의 snapshot을 해줘야 겠지..?!
-이전 방법처럼이 아닌 이렇게 왜 해야하는가?? react가 상태 업데이트를 계획하는 경우를 생각해야 한다.
-==> 즉시 일어나는 업데이트를 해주는 것이 아닌 계획성이므로 
-*** 동시에 많은 상태 업데이트를 하게 된다면, 오래되거나 잘못된 상태 snapshot에 의존할 가능성이 열린다. ***
-*** 이렇게 하면 inner function에서 제공하는 상태 snapshot이 항상 최신 상태 snapshot이라는걸 React가 보장한다. ***
+prevState : 이전 상태의 snapshot을 가져올 수 있음.<br/>
+return은 새로운 상태의 snapshot을 해줘야 겠지..?!<br/>
+이전 방법처럼이 아닌 이렇게 왜 해야하는가?? react가 상태 업데이트를 계획하는 경우를 생각해야 한다.<br/>
+==> 즉시 일어나는 업데이트를 해주는 것이 아닌 계획성이므로 <br/>
+*** 동시에 많은 상태 업데이트를 하게 된다면, 오래되거나 잘못된 상태 snapshot에 의존할 가능성이 열린다. ***<br/>
+*** 이렇게 하면 inner function에서 제공하는 상태 snapshot이 항상 최신 상태 snapshot이라는걸 React가 보장한다. ***<br/>
 
 <h3>상향식 컴포넌트 통식(Lifting State Up)</h3>
 <li>차례차례로 자식에서 부모에게 props전달. (중간 단계 건너뛸 수 없음~!)</li>
