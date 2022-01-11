@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './ExpenseForm.css';
 
+
+
 const ExpenseForm = (props) => {
     const [enteredtitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState(0);
@@ -62,9 +64,18 @@ const ExpenseForm = (props) => {
         setEnteredTitle('')
         setEnteredAmount('')
         setEnteredDate('')
+        clickEvent()
     }
 
-    return (
+    const [addNewExpense, setAddNewExpense] = useState(false)
+
+    const clickEvent = (e) =>{
+        setAddNewExpense(!addNewExpense)
+    }
+
+    const addNewExpenseBtn = <button onClick={clickEvent} >Add New Expense</button>
+
+    const expenseFrom = (
         <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
@@ -81,9 +92,18 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button type='button' onClick={clickEvent}>cancle</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>
+    )
+
+    return (
+        <>
+            {
+                (addNewExpense) ? expenseFrom : addNewExpenseBtn
+            }
+        </>
     )
 }
 
