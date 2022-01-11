@@ -10,3 +10,8 @@
 <h4> 길이가 긴 삼항수식은, 길이가 두 개의 짧은 독립 수식으로 나누는 방법도 있으니 참고하자.</h4>
 
 <h4> JSX 코드도 변수로 선언 가능함. 기억! (section 71)</h4>
+
+
+<h1>[Conditional & Dynamic Styles]</h1>
+<li>Styled Components</li>
+<li>CSS Modules</li>
