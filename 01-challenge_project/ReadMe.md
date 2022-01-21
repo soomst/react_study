@@ -5,6 +5,7 @@
     <li>유효성 검사 로직 구현</li>
     <li>wrapper</li>
     <li>React Portals</li>
+    <li>ref</li>
 </ul>
 
 <hr/>
@@ -60,6 +61,50 @@ modal은 페이지 위의 오버레이이며, 논리적으로 모든 것 위에 
 
 **React.reder**와 다름 주의 <br/>
 
+<hr/>
+
+<h3>ref</h3>
+<h4>기본 역할은 다른 DOM요소로 접근해서 작업할 수 있게 해주는 역할이다.</h4>
+
+<span>
+   선언한 useRef 변수를 HTML요소의 ref prop을 통해 연결할 수 있으며,<br/>
+   uesRef 변수로 연결한 HTML요소에 접근할 수 있다.<br/>
+   uesRef 변수는 항상 <b style='color:red;'>current</b> 속성을 가지고 있는 <b style='color:red;'>객체</b>를 반환한다.
+</span>
+<br/><br/>
+<h4>ref 이용 방법 (AddUser.js 참고)</h4>
+
+1. useRef hook을 사용하기 위해 import해주자. (함수형 컴포넌트에서만 사용 가능)<br/>
+    ```
+    import React, { useRef } from "react";
+    ```
+2. useRef 변수를 선언하자.<br/>
+    ```
+    const nameInputRef = useRef()
+    const ageInputRef = useRef()
+    ```
+3. 선언한 useRef 변수를 HTML요소와 연결하자.<br/>
+    ```
+        <input
+            type="text"
+            id="username"
+            value={enteredUserNm}
+            ref={nameInputRef}
+          />
+          <label htmlFor="age">Age (Years)</label>
+          <input
+            type="number"
+            id="age"
+            value={enteredUserAge}
+            ref={ageInputRef}
+          />
+    ```
+    key prop과 마찬가지로 내장 prop이며, 어느 HTML요소에도 추가할 수 있다.</br>
+    따라서 어떤 HTML요소든 하나의 ref와 연결할 수 있다.</br></br>
+
+ref로 DOM을 조작하는 경우는 드물며, 보통 DOM에 접근하기 위해서 사용..?!
+
+<hr/>
 [참고 내용]<br/>
 react : 상태 관리 등을 비롯한 리액트의 모든 기능이 존재하는 라이브러리로 생각할 수 있음.<br/>
 react-dom : react를 사용해 논리와 각종 기능들을 웹 브라우저로 가져온다, DOM과 호환되도록 만들어준다.
