@@ -3,6 +3,7 @@
 <ul>
     <li>module.css practice</li>
     <li>유효성 검사 로직 구현</li>
+    <li>wrapper</li>
 </ul>
 
 <hr/>
@@ -20,4 +21,15 @@
 <h3>유효성 검사 로직 구현</h3>
 <span>
    error modal 창 컨트롤 연습 (ErrorModal.js, AddUser.js 참조)
+</span>
+
+<hr/>
+
+<h3>wrapper</h3>
+<span>
+   <ul>
+    <li>wrapper를 만들어서 사용하기</li>
+    <li><></> 사용하기 (빌드 워크플로우가 지원해야만 가능하기 때문에 프로젝트 환경에 따라 작동이 안될 수 있다.)</li>
+    <li>React.Fragment (리액트에서 제공)</li>
+   </ul>
 </span>
