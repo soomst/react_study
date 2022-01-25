@@ -11,21 +11,21 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  useEffect(()=>{
-    //디바운싱(Debouncing) : 연이어 발생한 이벤트를 하나의 그룹으로 묶어서 처리하는 방식
-    //한 번에 하나의 타이머만 실행됨.
-    const identifier = setTimeout(() => {
-      console.log("Checking from validity!")
-      setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
-      )
-    }, 500) //5초가 지난 후에 수행
+  // useEffect(()=>{
+  //   //디바운싱(Debouncing) : 연이어 발생한 이벤트를 하나의 그룹으로 묶어서 처리하는 방식
+  //   //한 번에 하나의 타이머만 실행됨.
+  //   const identifier = setTimeout(() => {
+  //     console.log("Checking from validity!")
+  //     setFormIsValid(
+  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
+  //     )
+  //   }, 500) //5초가 지난 후에 수행
 
-    return ()=>{
-      console.log("CLEAN UP!")
-      clearTimeout(identifier)
-    } //클린업 함수
-  }, [enteredEmail, enteredPassword])
+  //   return ()=>{
+  //     console.log("CLEAN UP!")
+  //     clearTimeout(identifier)
+  //   } //클린업 함수
+  // }, [enteredEmail, enteredPassword])
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
