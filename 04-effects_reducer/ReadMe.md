@@ -111,6 +111,12 @@ const [state, dispathcFn] = useReducer(reducerFn, initialState, initFn)
 -   **state : 컴포넌트에서 사용 할 수 있는 상태**
 -   **dispathcFn : 새로운 액션을 전달하는 데 사용하는 함수(즉, 상태 업데이트 트리거)**
 -   **reducerFn : '(prevState, action) => newState'**  
-    작업이 디스패치되면 자동으로 트리거되는 함수(dispatchFn()를 통해) - 최신 상태 스냅샷을 수신하고 새로운 업데이트 상태를 return한다.
+    작업이 디스패치되면 자동으로 트리거되는 함수(dispatchFn()를 통해) - 최신 상태 스냅샷(prevState)을 수신하고 새로운 업데이트 상태를 return한다.
 -   **initialState : 초기상태**
 -   **initFn : 초기상태 설정 함수**
+
+<hr/>
+
+참고~!  
+- 디스트럭처링(Destructuring)은 구조화된 배열 또는 객체를 Destructuring(비구조화, 파괴)하여 개별적인 변수에 할당하는 것이다.  
+배열 또는 객체 리터럴에서 필요한 값만을 추출하여 변수에 할당하거나 반환할 때 유용하다.
