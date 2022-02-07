@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import AuthContext from '../store/auth-context';
 
 //emailReducer은 컴포넌트 내에서 만들어진 데이터는 필요하지 않으므로, Login컴포넌트 외부에서 만듦!!!
 //그러므로 컴포넌트 함수 내부의 것들과 상호작용 하는 일들이 없음!
@@ -43,6 +44,8 @@ const Login = (props) => {
   //객체의 destructuring
   const { isValid: emailIsValid }    = emailState
   const { isValid: passwordIsValid } = passwordState
+
+  const authCtx = useContext(AuthContext)
 
   useEffect(()=>{
     //디바운싱(Debouncing) : 연이어 발생한 이벤트를 하나의 그룹으로 묶어서 처리하는 방식
@@ -88,7 +91,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogIn(emailState.value, passwordState.value);
   };
 
   return (

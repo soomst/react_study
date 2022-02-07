@@ -166,7 +166,7 @@ const [state, dispathcFn] = useReducer(reducerFn, initialState, initFn)
   }
   ```
 
-  **3. context 접근하기**  
+  **3-1. context 접근하기 (Consumer)**  
   [Consumer](https://reactjs.org/docs/context.html#contextconsumer)를 통해 Context에 저장되어 있는 전역 데이터에 접근 할 수 있다.  
   Consumer는 Context 데이터를 전달인자로 받는 함수를 필요로 한다. ([render props](https://reactjs.org/docs/render-props.html) 패턴)
   해당 함수는 jsx코드를 리턴해야한다.
@@ -207,7 +207,44 @@ const [state, dispathcFn] = useReducer(reducerFn, initialState, initFn)
   };
   ```
 
-- **React useContext Hook**
+**3-2. context 접근하기 (useContext)**  
+
+Consumer 대신에 useContext hook을 이용하여 context에 접근해보자.  
+useContext hook을 import하고 선언한다.
+접근할 context를 useContext 함수에 인자 값으로 넘겨주면 접근 가능!
+
+```
+import React, {useContext} from "react";
+import AuthContext from "../store/auth-context";
+
+import classes from "./Navigation.module.css";
+
+const Navigation = (props) => {
+  const ctx = useContext(AuthContext) //useContext hook!!
+
+  return (
+    <nav className={classes.nav}>
+      <ul>
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Users</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Admin</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <button onClick={props.onLogout}>Logout</button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+```
 
 ---
 
