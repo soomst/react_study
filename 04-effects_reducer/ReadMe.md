@@ -106,7 +106,40 @@ const [state, dispathcFn] = useReducer(reducerFn, initialState, initFn)
 - **reducerFn : '(prevState, action) => newState'**  
   작업이 디스패치되면 자동으로 트리거되는 함수(dispatchFn()를 통해) - 최신 상태 스냅샷(prevState)을 수신하고 새로운 업데이트 상태를 return한다.
 - **initialState : 초기상태**
-- **initFn : 초기상태 설정 함수**
+- **initFn : 초기상태 설정 함수**  
+  
+<br/>
+
+### 예시  
+
+```
+const passwordReducer = (state, action) => {
+  if (action.type === 'USER_INPUT') {
+    return {value : action.val, isValid : action.val.trim().length > 6}
+  }
+
+  if (action.type === 'INPUT_BLUR') {
+    return {value : state.value, isValid : state.value.trim().length > 6}
+  }
+
+  return {value : '', isValid : false}
+}
+
+const Login = (props) => {
+
+ const [passwordState, dispatchPassword] = useReducer(passwordReducer, {value : '', isValid : null}) //패스워드와 패스워드 유효성 대해 useReducer활용
+
+  const passwordChangeHandler = (event) => {
+    dispatchPassword({type:'USER_INPUT', val:event.target.value});
+  };
+
+  ...
+
+  return (
+    ...
+  )
+}
+```
 
 ---
 
