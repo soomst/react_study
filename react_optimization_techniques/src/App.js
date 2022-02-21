@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="app">
       <h1>Hi there!</h1>
-      <DemoOutput show={showParagraph}/>
+      <DemoOutput show={false}/>  {/* 컴포넌트가 재실행되면 모든 자식 컴포넌트도 재실행, 재평가된다! */}
       <Button onClick={toggleParagraphHandler}>Show Paragraph!</Button>
     </div>
   );
