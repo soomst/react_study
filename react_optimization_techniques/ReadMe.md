@@ -82,7 +82,7 @@ string, number (en-US), bigint (en-US), boolean, undefined, symbol, null은 js�
 <br/>
 
 [참고자료]
-- [js에서 원시값과 참조형의 차이란?!!]('https://academind.com/tutorials/reference-vs-primitive-values')  
+- [js에서 원시값과 참조형의 차이란?!!](https://academind.com/tutorials/reference-vs-primitive-values)  
 
 ---
   
@@ -109,6 +109,6 @@ useCallback(() => {...}, [dependencies])
 <br/>
 
 [참고자료]
-- [클로져란?!!]('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures')  
-- [useCallback 사용 이유 상세 페이지1]('https://www.daleseo.com/react-hooks-use-callback/')  
-- [useCallback 사용 이유 상세 페이지2]('https://dmitripavlutin.com/dont-overuse-react-usecallback/')  
+- [클로져란?!!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)  
+- [useCallback 사용 이유 상세 페이지1](https://www.daleseo.com/react-hooks-use-callback/)  
+- [useCallback 사용 이유 상세 페이지2](https://dmitripavlutin.com/dont-overuse-react-usecallback/)  
