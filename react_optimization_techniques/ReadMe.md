@@ -81,4 +81,34 @@ string, number (en-US), bigint (en-US), boolean, undefined, symbol, null은 js�
 그러나 배열이나 함수, 객체는 참조값 이므로 Button 컴포넌트에서 이전 props.onClick 함수와 App에서부터 새롭게 넘겨받은 props.onClick 함수는 다르다.  
 <br/>
 
-** [js에서 원시값과 참조형의 차이란?!!]('https://academind.com/tutorials/reference-vs-primitive-values')
+[참고자료]
+- [js에서 원시값과 참조형의 차이란?!!]('https://academind.com/tutorials/reference-vs-primitive-values')  
+
+---
+  
+### useCallback() 이란?  
+기본적으로 컴포넌트 실행 전반에 걸친 함수를 저장하는 hook이다. react에 함수를 저장하여 매 실행마다 재생성하지 않도록 한다.  
+메모리 내의 동일한 위치 중 하나에 저장되므로 동일한 함수(객체)인지 비교가 가능하다.  
+
+<br/>
+
+```
+useCallback(() => {...}, [dependencies])
+```
+
+- 첫 번째 인수 : 저장할 함수
+- 두 번째 인수 : useCallback 호출의 dependency 배열 (useEffect와 동일)  
+
+<br/>
+
+**useCallback**을 왜 사용해야 할까?  
+1. js 함수 동등성
+2. 의존 배열로 함수를 넘길 때 (클로져 개념 알기)
+3. React.memo와 함께 사용하기  
+
+<br/>
+
+[참고자료]
+- [클로져란?!!]('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures')  
+- [useCallback 사용 이유 상세 페이지1]('https://www.daleseo.com/react-hooks-use-callback/')  
+- [useCallback 사용 이유 상세 페이지2]('https://dmitripavlutin.com/dont-overuse-react-usecallback/')  
