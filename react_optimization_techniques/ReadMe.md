@@ -112,3 +112,91 @@ useCallback(() => {...}, [dependencies])
 - [클로져란?!!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)  
 - [useCallback 사용 이유 상세 페이지1](https://www.daleseo.com/react-hooks-use-callback/)  
 - [useCallback 사용 이유 상세 페이지2](https://dmitripavlutin.com/dont-overuse-react-usecallback/)  
+
+---
+  
+### useMemo() 이란?  
+기본적으로 컴포넌트 실행 전반에 걸친 데이터를 저장하는 hook이다. react에 데이터를 저장하여 불필요한 데이터를 재생성하지 않고, 재사용할 수 있게 해준다.  
+
+<br/>
+
+```
+useMemo(() => {...}, [dependencies])
+```
+
+- 첫 번째 인수 : 결과값을 생성해주는 팩토리 함수
+- 두 번째 인수 : useMemo 호출의 dependency 배열 (useEffect와 동일)  
+
+<br/>
+
+### useMemo() 예제  
+
+app.js
+
+```
+import React, { useState, useCallback, useMemo } from 'react';
+import Button from './components/UI/Button/Button'
+import DemoList from './components/Demo/DemoList';
+
+import './App.css';
+
+function App() {
+  const [listTitle, setListTitle] = useState('My List')
+
+  const chngTitleHandler = useCallback(()=>{
+    setListTitle('NewTitle')
+  }, [])
+
+  const listItems = useMemo(()=> [5,3,1,10,9], [])
+
+  return (
+    <div className="app">
+      <h1>Hi there!</h1>
+      <DemoList title={listTitle} items={listItems}/>
+      <Button onClick={chngTitleHandler}>Change List Title</Button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+DemoList.js
+
+```
+import React, { useMemo } from 'react';
+
+const DemoList = (props) => {
+  const {items} = props;
+
+  const sortedList = useMemo(()=> {
+    return items.sort((a, b) => a-b )
+  }, [items])
+  console.log('DemoList RUNNING')
+
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <ul>
+        {sortedList.map((item)=> (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default DemoList;
+```
+
+<br/>
+
+[ **useMemo**는 자주 사용될까? ]  
+**자주 사용되진 않는다..!**  
+useMemo로 데이터를 저장한다면 메모리를 차지하게 되고, 팩토리 함수도 퍼포먼스를 차지하기 때문에 남용하게 된다면 오히려 성능 최적화에 부정적일 수 있다.
+
+---
+
+### React State Batch Update (batch update)
+state update를 하는데 있어 중요 원문...  
+- [React State Batch Update](https://medium.com/swlh/react-state-batch-update-b1b61bd28cd2)

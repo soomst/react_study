@@ -31,3 +31,30 @@ function App() {
 }
 
 export default App;
+
+//useMemo test
+// import React, { useState, useCallback, useMemo } from 'react';
+// import Button from './components/UI/Button/Button'
+// import DemoList from './components/Demo/DemoList';
+
+// import './App.css';
+
+// function App() {
+//   const [listTitle, setListTitle] = useState('My List')
+
+//   const chngTitleHandler = useCallback(()=>{
+//     setListTitle('NewTitle')
+//   }, [])
+
+//   const listItems = useMemo(()=> [5,3,1,10,9], [])
+
+//   return (
+//     <div className="app">
+//       <h1>Hi there!</h1>
+//       <DemoList title={listTitle} items={listItems}/>
+//       <Button onClick={chngTitleHandler}>Change List Title</Button>
+//     </div>
+//   );
+// }
+
+// export default App;
