@@ -1,10 +1,21 @@
 ## react HTTP 요청 보내기  
 
-dummyData로 더미API(https://swapi.dev/)를 사용하여 get요청을 보내보자.  
+1. dummyData로 더미API(https://swapi.dev/)를 사용하여 get요청을 보내보자.  
+2. Firebase 더미API(https://firebase.google.com)을 사용하여 post요청을 보내보자.  
+   (Firebase는 구글이 제공하는 서비스로, 코드 작성 없이도 사용할 수 있는 백엔드,  
+   데이터베이스에 딸린 백엔드이지만 완전한 백엔드 앱, 즉, 요청을 보낼 수 있는 완전한 REST API를 제공한다.)  
+   - 무료로 사용 가능
+   - 코딩이 필요 없는 백엔드
+   - Firebase는 일부 기능 데이터베이스를 가지고 있다. (Firestore Database(더 강력), RealTime Database)
+   - 요청을 보내는 URL 끝에 .json을 추가해서 요청해야 한다.(firebase 요구사항)
+
+<br/>
 
 ---
-자바스크립트를 통해서 서버에 데이터를 요청하기 위해 사용할 API/라이브러리를 알아보자.  
 <br/>
+
+자바스크립트를 통해서 서버에 데이터를 요청하기 위해 사용할 API/라이브러리를 알아보자.  
+
 
 ### [axios](https://github.com/axios/axios)
 - 브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다.
