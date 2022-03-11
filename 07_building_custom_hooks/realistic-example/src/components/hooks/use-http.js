@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 
 function stateReducer(state, action) {
     switch(action.type) {
@@ -26,14 +26,14 @@ function stateReducer(state, action) {
 
 }
 
-function useHttp (callbackFn) {
+function useHttp () {
   const [state, dispatchState] = useReducer(stateReducer, {
     isLoading: false,
     data: null,
     error: false
   })
 
-  const sendRequest = async (taskText) => {
+  const sendRequest = useCallback(async (taskText, callbackFn) => {
     dispatchState({type:'LOADING'})
 
     try {
@@ -63,7 +63,7 @@ function useHttp (callbackFn) {
       } catch (err) {
         dispatchState({type:'ERROR', error: err.message || "Something went wrong!"})
       }
-  }
+  }, [])
 
   return [state, sendRequest]
 }

@@ -7,27 +7,23 @@ import useHttp from "./components/hooks/use-http";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const taskDataHandler = (data) => {
-    const loadedTasks = [];
-    for (const taskKey in data) {
-      loadedTasks.push({ id: taskKey, text: data[taskKey].text });
-    }
-    setTasks(loadedTasks);
-  };
-
-  const [state, sendRequest] = useHttp(taskDataHandler);
+  const [state, sendRequest] = useHttp();
 
   const taskAddHandler = (task) => {
     setTasks((prevTasks) => prevTasks.concat(task));
   };
 
-  async function addText() {
-    await sendRequest();
-  }
-
   useEffect(() => {
-    addText();
-  }, []);
+    const taskDataHandler = (data) => {
+      const loadedTasks = [];
+      for (const taskKey in data) {
+        loadedTasks.push({ id: taskKey, text: data[taskKey].text });
+      }
+      setTasks(loadedTasks);
+    }
+
+    sendRequest('', taskDataHandler);
+  }, [sendRequest]);
 
   return (
     <React.Fragment>
@@ -36,7 +32,7 @@ function App() {
         items={tasks}
         loading={state.isLoading}
         error={state.error}
-        onFetch={addText}
+        onFetch={sendRequest}
       />
     </React.Fragment>
   );

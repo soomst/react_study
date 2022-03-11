@@ -1,31 +1,21 @@
-import { useEffect, useState } from "react";
 import useHttp from "../hooks/use-http";
 import Section from "../UI/Section";
 import TaskForm from "./TaskForm";
 
 const NewTask = (props) => {
-  const [taskText, setTaskText] = useState(null);
-  const taskDataHandler = (data) => {
+  const [state, sendRequest] = useHttp();
+
+  //bind 메소드를 사용해서, 중첩 함수 안되게끔 하기
+  const taskDataHandler = (taskText, data) => {
     props.onAddTask({
       id: data.name,
       text: taskText,
     });
   };
-  const [state, sendRequest] = useHttp(taskDataHandler);
 
-  const enterTaskHandler = async (text) => {
-    setTaskText(text);
+  const enterTaskHandler = (taskText) => {
+    sendRequest(taskText, taskDataHandler.bind(null, taskText));
   };
-
-  async function addText() {
-    await sendRequest(taskText);
-  }
-
-  useEffect(() => {
-    if (taskText) {
-      addText();
-    }
-  }, [taskText]);
 
   return (
     <Section>
