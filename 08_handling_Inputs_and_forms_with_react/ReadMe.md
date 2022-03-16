@@ -14,3 +14,8 @@
 
 ### hide code hide  
 참고 자료 : https://academind.com/tutorials/hide-javascript-code
+
+---
+
+- Formik : 컴포넌트와 예번 React버전의 패턴을 쓰는 라이브러리이다.  
+형식을 렌더링 하고 복잡한 형식과 유효성 검사할 때 유용하다. (state관리와 logic을 간소화하는게 핵심)

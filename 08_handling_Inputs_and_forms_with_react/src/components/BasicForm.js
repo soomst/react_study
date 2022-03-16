@@ -39,7 +39,7 @@ const BasicForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (formIsValid) return;
+    if (!formIsValid) return;
 
     resetFname()
     resetLname()
