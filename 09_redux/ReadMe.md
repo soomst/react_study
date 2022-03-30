@@ -48,11 +48,18 @@ React Context (potential) 단점
 5. Action Creator(액션 생성함수)  
    액션 생성함수는 액션 객체를 만들어주는 함수이다. 화살표 함수로도 표현이 가능하다.
 6. Reducer Function(리듀서)  
-   store에서 관리하는 데이터(상태)를 결정한다. action이 도착할 때 마다 새 상태 snapshot을 내보낸다.
-   리듀서는 현재 상태와 액션 객체를 받아, 필요하다면 새로운 상태를 리턴하는 함수이다. 액션 유형을 기반으로 이벤트를 처리하는 이벤트 리스너라고 생각하면 된다.
+    store에서 관리하는 데이터(상태)를 결정한다. action이 도착할 때 마다 새 상태 snapshot을 내보낸다.
+   리듀서는 현재 상태와 액션 객체를 받아, 필요하다면 새로운 상태를 리턴하는 함수이다. 액션 유형을 기반으로 이벤트를 처리하는 이벤트 리스너라고 생각하면 된다.  
+    [**절대 기존의 state를 변형해서는 안된다.**](https://academind.com/tutorials/reference-vs-primitive-values)
 
-   - 순수 함수여야 한다.  
-     같은 입력값은 같은 출력값을 리턴한다.  
+   - 예측 불가능한 버그가 발생할 수 도 있음.
+   - 프로그램 디버깅이 어려울 수 있음.
+   - state가 동기화되지 않는 더 큰 APP에서 예기치 않은 부작용이 생길 수 있음.
+   - 갑자기 UI가 state를 정확히 반영하지 않을 수 있음.
+
+   순수 함수여야 한다.
+
+   - 같은 입력값은 같은 출력값을 리턴한다.  
      side-effect(e.g. http 요청, 로컬저장소에 뭔가 쓰거나/패치)가 없어야 한다.
    - Inputs: Old State + Dispatched Action
    - Output: New State Object

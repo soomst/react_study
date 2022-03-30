@@ -1,30 +1,34 @@
 import React, { Component } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
 import classes from "./Counter.module.css";
-import { INCREMENT, DECREMENT, INCREASE, TOGGLE } from "../store";
+//import { INCREMENT, DECREMENT, INCREASE, TOGGLE } from "../store";
+import { counterAcions } from "../store/counter";
 
 const Counter = () => {
   const dispatch = useDispatch();
   const { counter, showCounter } = useSelector((state) => ({
-    counter: state.counter,
-    showCounter: state.showCounter,
+    counter: state.counter.counter,
+    showCounter: state.counter.showCounter,
   })); // react-redux에 의해 실행, 리덕스 상태를 보내줌.
 
   //action 생성
   const increaseHandler = () => {
-    dispatch({ type: INCREASE, amount: 5 });
+    //dispatch({ type: INCREASE, amount: 5 });
+    dispatch(counterAcions.increase(5)); //{ type: SOME_UNIQUE_IDENTIFIER, payload: 5 }
   };
 
   const incrementHandler = () => {
-    dispatch({ type: INCREMENT });
+    dispatch(counterAcions.increament());
   };
 
   const decrementHandler = () => {
-    dispatch({ type: DECREMENT });
+    //dispatch({ type: DECREMENT });
+    dispatch(counterAcions.decreament());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: TOGGLE });
+    //dispatch({ type: TOGGLE });
+    dispatch(counterAcions.toggleCounter());
   };
 
   return (
