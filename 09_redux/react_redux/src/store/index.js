@@ -1,15 +1,28 @@
-import React from "react";
 import { createStore } from "redux";
 
-const initialState = { counter: 0 };
+export const INCREMENT = "increament";
+export const DECREMENT = "decrement";
+export const TOGGLE = "toggle";
+export const INCREASE = "increase";
+
+const initialState = { counter: 0, showCounter: true };
 
 //reducer 생성
 const counterReducer = (state = initialState, action) => {
+  const newState = { ...state };
   switch (action.type) {
-    case "increment":
-      return { counter: state.counter + 1 };
-    case "decrement":
-      return { counter: state.counter - 1 };
+    case INCREASE:
+      newState.counter += 5;
+      return newState;
+    case INCREMENT:
+      newState.counter++;
+      return newState;
+    case DECREMENT:
+      newState.counter--;
+      return newState;
+    case TOGGLE:
+      newState.showCounter = !newState.showCounter;
+      return newState;
     default:
       return state;
   }
