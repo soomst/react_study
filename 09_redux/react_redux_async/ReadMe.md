@@ -101,7 +101,7 @@ redux에서 side-effects and async tasks를 어떻게 수행해야 할까?
   - **useEffect를 사용할 때 문제** : 앱이 시작될 때 그것이 실행된다.  
     초기(즉, 비어 있는) 카트를 백엔드로 보내고 거기에 저장된 모든 데이터를 덮어쓰기 때문에 문제이다.
 
-- Inside the **actions creators** : use "Thunk"
+- Inside the **actions creators** : use ["Thunk"](https://redux-advanced.vlpt.us/2/01.html)
   - A function that delays an action until later : action을 무언가 끝날 때까지 미뤄준다.  
     An action creator function that does NOT return the action itself  
     but another function which eventually returns the action.

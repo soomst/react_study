@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
-import { uiSliceAction } from "./store/ui-slice";
 import Notification from "./components/UI/Notification";
+import { sendCartData } from "./store/cart-actions";
+import { fetchCartData } from "./store/cart-actions";
 
 let isInitial = true;
 
@@ -15,53 +16,18 @@ function App() {
   const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
-    const sendCartData = async () => {
-      dispatch(
-        uiSliceAction.showNotification({
-          status: "pending",
-          title: "Sending...",
-          message: "Sending cart data!",
-        })
-      );
-      const options = {
-        method: "PUT",
-        body: JSON.stringify(cart),
-      };
+    dispatch(fetchCartData());
+  }, [dispatch]);
 
-      const response = await fetch(
-        "https://react-http-42cd7-default-rtdb.firebaseio.com/cart.json",
-        options
-      );
-
-      if (!response.ok) {
-        throw new Error("Sending cart datat faild");
-      }
-
-      const responseData = await response.json();
-
-      dispatch(
-        uiSliceAction.showNotification({
-          status: "success",
-          title: "Success!",
-          message: "Sent cart data successfully!",
-        })
-      );
-    };
-
+  useEffect(() => {
     if (isInitial) {
       isInitial = false;
       return;
     }
 
-    sendCartData().catch((error) =>
-      dispatch(
-        uiSliceAction.showNotification({
-          status: "error",
-          title: "Error!",
-          message: "Sending cart datat faild!",
-        })
-      )
-    );
+    if (cart.changed) {
+      dispatch(sendCartData(cart));
+    }
   }, [cart, dispatch]);
 
   return (
