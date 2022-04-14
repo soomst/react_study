@@ -121,3 +121,35 @@ export default App;
 ## Redirect
 
 특정 URL로 들어온 경우, 다른 경로로 redirect 해줌
+
+---
+
+## useHistory
+
+(페이지)이동 경로를 확인하고 변경할 수 있다.
+
+---
+
+## [Prompt](https://v5.reactrouter.com/core/api/Prompt)
+
+```
+import { Prompt } from "react-router-dom";
+
+<Prompt
+  when={ formIsHalfFilledOut  }
+  message={(location) =>
+    "Are you sure ypu want to leave? All your entered data will be lost!"
+  }
+/>
+```
+
+- when: boolean  
+  Instead of conditionally rendering a <Prompt> behind a guard, you can always render it but pass when={true} or when={false} to prevent or allow navigation accordingly.
+- message([location, action]): func  
+  Will be called with the next location and action the user is attempting to navigate to. Return a string to show a prompt to the user or true to allow the transition.
+
+  ## useLocation
+
+  location 객체에 접근하게 하고, location 객체엔 최근 로드된 페이지와 URL에 대한 정보가 있다.
+
+  ### new URLSearchParams : js에 원래 있음.
