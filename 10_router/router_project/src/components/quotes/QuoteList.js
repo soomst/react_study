@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { useHistory, useLocation } from "react-router";
 
 import QuoteItem from "./QuoteItem";
@@ -12,7 +12,13 @@ const QuoteList = (props) => {
   const isSortinAscending = queryParams.get("sort") === "asc";
 
   const changeSortingHandler = () => {
-    history.replace(`/quotes?sort=${isSortinAscending ? "desc" : "asc"}`);
+    history.replace({
+      pathname: location.pathname,
+      search: `?sort=${isSortinAscending ? "desc" : "asc"}`,
+    });
+    // history.replace(
+    //   `${location.pathname}?sort=${isSortinAscending ? "desc" : "asc"}`
+    // );
   };
 
   const sortQuotes = (quotes, ascending) => {
