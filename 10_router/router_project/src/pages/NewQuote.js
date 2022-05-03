@@ -10,11 +10,9 @@ const NewQuote = (props) => {
 
   useEffect(() => {
     if (status === "completed") history.push("/quotes");
-  }, [status]);
+  }, [status, history]);
 
   const addQuoteHandler = (quoteData) => {
-    console.log(quoteData);
-
     sendRequest(quoteData);
   };
   return (
