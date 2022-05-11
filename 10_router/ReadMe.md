@@ -153,3 +153,13 @@ import { Prompt } from "react-router-dom";
   location 객체에 접근하게 하고, location 객체엔 최근 로드된 페이지와 URL에 대한 정보가 있다.
 
   ### new URLSearchParams : js에 원래 있음.
+
+---
+
+# firebase 통해서 배포하기
+
+배포 후 설정된 url : https://react-http-42cd7.web.app
+커스텀 url도 만들 수 있음.
+
+host를 끊고 싶다면,
+firebase hosting:disable 하면 됨
