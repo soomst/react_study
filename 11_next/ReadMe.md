@@ -57,6 +57,11 @@ NextJS는 React 코드를 쓰며(react 특징들을 사용할 수 있음) 단지
    **그러나!! NextJS에서는 이러한 코드 내 Route 정의를 없앤다.**  
    NextJS 앱 내 **pages**폴더에 라우트와 경로를 정의하면 Routing 설정이 끝난다.  
    ==> 코드를 적게 작성하면서 작업량을 줄일 수 있고, 이해하기가 쉬워진다.
+   
+  참고 링크
+   - https://nextjs.org/docs/routing/introduction
+   - https://nextjs.org/docs/api-reference/next/router
+   - https://nextjs.org/docs/api-reference/next/link
 
 3. **fullstack 프레임워크**  
    백엔드(서버사이드)코드를 React apps에 NextJS를 통해서 쉽게 추가할 수 있다.  
