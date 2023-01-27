@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-complete-guide"]=this["webpackJsonpreact-complete-guide"]||[]).push([[7],{37:function(e,t,o){e.exports={noquotes:"NoQuotesFound_noquotes__3DIYb"}},41:function(e,t,o){"use strict";o.r(t);var s=o(9),n=o(37),c=o.n(n),u=o(1);t.default=function(){return Object(u.jsxs)("div",{className:c.a.noquotes,children:[Object(u.jsx)("p",{children:"No quotes found!"}),Object(u.jsx)(s.b,{to:"/new-quote",className:"btn",children:"Add a Quote"})]})}}}]);
+//# sourceMappingURL=7.49aa5fff.chunk.js.map
